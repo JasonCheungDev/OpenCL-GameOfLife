@@ -69,9 +69,8 @@
   <ItemGroup>
     <None Include="vertex.glsl" />
     <None Include="fragment.glsl" />
-    <None Include="game_of_life.cl" />
-    <None Include="game_of_life_cpu.cl">
-      <Filter>Source Files</Filter>
-    </None>
+    <None Include="game_of_life_draft.cl" />
+    <None Include="game_of_life_gpu.cl" />
+    <None Include="game_of_life_generic.cl" />
   </ItemGroup>
 </Project>

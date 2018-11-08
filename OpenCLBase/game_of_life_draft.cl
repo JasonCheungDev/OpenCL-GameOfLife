@@ -1,3 +1,5 @@
+// Not used kernel. Here for reference.
+
 //input array, //output array
 __kernel void GameOfLife(__global uchar4* input, __global uchar4* output, int height, int width, int alive)
 {

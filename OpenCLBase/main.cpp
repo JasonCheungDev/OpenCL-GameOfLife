@@ -155,19 +155,18 @@ int main()
 {
 	initGL();
 
-	//GameOfLifeSerial* simulator1 = new GameOfLifeSerial();
-    //GameOfLifeCPU* simulator2 = new GameOfLifeCPU(window);
-	//GameOfLifeGPU* simulator3 = new GameOfLifeGPU(window);
+	GameOfLifeSerial* simulator1 = new GameOfLifeSerial();
+    GameOfLifeCPU* simulator2 = new GameOfLifeCPU(window);
+	GameOfLifeGPU* simulator3 = new GameOfLifeGPU(window);
     GameOfLifeMulti* simulator4 = new GameOfLifeMulti(window);
-	// TODO: CPU + GPU (part 4)
     
 	// do stuff every frame 
 	while (!glfwWindowShouldClose(window))
 	{
-		//simulator1->update();
+		simulator1->update();
         //simulator2->update();
 		//simulator3->update();
-        simulator4->update();
+        //simulator4->update();
 
 		glBindVertexArray(quadVAO);
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

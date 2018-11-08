@@ -27,10 +27,10 @@ private:
     cl::Context GPUcontext;
     cl::Kernel cpuKernel;
     cl::Kernel gpuKernel;
-    cl::CommandQueue queue;
-    cl::CommandQueue Q2;
-    cl::Buffer readbuf;
-    cl::Buffer writeBuff;
+    cl::CommandQueue cpuQueue;
+    cl::CommandQueue gpuQueue;
+    cl::Buffer cpuReadbuf;
+    cl::Buffer cpuWritebuf;
     cl::Buffer readbufG;
     cl::Buffer writeBuffG;
 };

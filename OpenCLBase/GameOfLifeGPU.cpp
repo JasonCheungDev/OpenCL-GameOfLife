@@ -51,7 +51,7 @@ GameOfLifeGPU::GameOfLifeGPU(GLFWwindow* window)
 	context = cl::Context(device, cps);
 
 	// program 
-	std::ifstream kernelFile("game_of_life.cl");
+	std::ifstream kernelFile("game_of_life_gpu.cl");
 	std::string src(std::istreambuf_iterator<char>(kernelFile), (std::istreambuf_iterator<char>()));	// brackets are important (not a function prototype)
 	cl::Program::Sources sources(1, std::make_pair(src.c_str(), src.length() + 1));
 	cl::Program program(context, sources);
