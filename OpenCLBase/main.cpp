@@ -156,7 +156,7 @@ int main()
 	initGL();
 
 	//GameOfLifeSerial* simulator1 = new GameOfLifeSerial();
- //   GameOfLifeCPU* simulator2 = new GameOfLifeCPU(window);
+    //GameOfLifeCPU* simulator2 = new GameOfLifeCPU(window);
 	//GameOfLifeGPU* simulator3 = new GameOfLifeGPU(window);
     GameOfLifeMulti* simulator4 = new GameOfLifeMulti(window);
 	// TODO: CPU + GPU (part 4)
