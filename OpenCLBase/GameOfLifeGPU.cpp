@@ -8,7 +8,7 @@
 GameOfLifeGPU::GameOfLifeGPU(GLFWwindow* window)
 {
 	// ===== OPENCL =====
-	printOpenCLInfo();	// not necessary, just to see information
+	// printOpenCLInfo();	// not necessary, just to see information
 
 	// platform 
 	std::vector<cl::Platform> platforms;

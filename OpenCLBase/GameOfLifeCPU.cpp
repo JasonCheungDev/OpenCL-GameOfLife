@@ -5,9 +5,9 @@
 
 GameOfLifeCPU::GameOfLifeCPU(GLFWwindow* window) {
     // ===== OPENCL =====
-    printOpenCLInfo();	// not necessary, just to see information
+    // printOpenCLInfo();	// not necessary, just to see information
 
-                        // platform 
+    // platform 
     std::vector<cl::Platform> platforms;
     cl::Platform::get(&platforms);
     int index = -1;

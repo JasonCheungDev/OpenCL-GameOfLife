@@ -24,6 +24,7 @@
 
 GLFWwindow* window;
 GLuint quadVAO;
+int useSimulator = 1;
 
 void glfw_error_callback(int error, const char* description)
 {
@@ -111,10 +112,22 @@ void initScreenQuad()
 	glBindVertexArray(0);
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_1 && action == GLFW_RELEASE)
+		useSimulator = 1;
+	else if (key == GLFW_KEY_2 && action == GLFW_RELEASE)
+		useSimulator = 2;
+	else if (key == GLFW_KEY_3 && action == GLFW_RELEASE)
+		useSimulator = 3;
+	else if (key == GLFW_KEY_4 && action == GLFW_RELEASE)
+		useSimulator = 4;
+}
+
 void initGL()
 {
-	// log glfw errors 
-	glfwSetErrorCallback(glfw_error_callback);
+	// log glfw errors (disabled for release)
+	// glfwSetErrorCallback(glfw_error_callback);
 
 	// initiailize glfw 
 	if (!glfwInit())
@@ -126,7 +139,7 @@ void initGL()
 
 	// initialize window 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
 	window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Conaway's Game of Life", NULL, NULL);
 	if (!window)
@@ -140,8 +153,9 @@ void initGL()
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
 
-	glEnable(GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(openglCallbackFunction, 0);
+	// (disabled for release)
+	// glEnable(GL_DEBUG_OUTPUT);
+	// glDebugMessageCallback(openglCallbackFunction, 0);
 
 	// init shader 
 	Shader shader("vertex.glsl", "fragment.glsl");
@@ -149,7 +163,11 @@ void initGL()
 
 	// init data 
 	initScreenQuad();
+
+	// listen for key press
+	glfwSetKeyCallback(window, key_callback);
 }
+
 
 int main()
 {
@@ -160,14 +178,24 @@ int main()
 	GameOfLifeGPU* simulator3 = new GameOfLifeGPU(window);
     GameOfLifeMulti* simulator4 = new GameOfLifeMulti(window);
     
+	std::cout << "===== CONTROLS ======" << std::endl
+		<< "Press 1 for Serial" << std::endl
+		<< "Press 2 for CPU" << std::endl
+		<< "Press 3 for GPU" << std::endl
+		<< "Press 4 for CPU+GPU" << std::endl;
+
 	// do stuff every frame 
 	while (!glfwWindowShouldClose(window))
 	{
-		simulator1->update();
-        //simulator2->update();
-		//simulator3->update();
-        //simulator4->update();
-
+		if (useSimulator == 1)
+			simulator1->update();
+		else if (useSimulator == 2)
+			simulator2->update();
+		else if (useSimulator == 3)
+			simulator3->update();
+		else if (useSimulator == 4)
+			simulator4->update();
+		
 		glBindVertexArray(quadVAO);
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 		glBindVertexArray(0);

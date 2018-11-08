@@ -5,7 +5,7 @@
 
 GameOfLifeMulti::GameOfLifeMulti(GLFWwindow* window) {
     // ===== OPENCL =====
-    printOpenCLInfo();	// not necessary, just to see information
+    // printOpenCLInfo();	// not necessary, just to see information
 
 	// generate grid and raw pixel data 
 	generateTextureDataPattern3(screen1, 240, SCREEN_HEIGHT / 2 + 10);
