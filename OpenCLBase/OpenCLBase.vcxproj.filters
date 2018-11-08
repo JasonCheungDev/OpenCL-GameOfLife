@@ -33,6 +33,12 @@
     <ClCompile Include="GameOfLifeGPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameOfLifeCPU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOfLifeMulti.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glad\glad.h">
@@ -53,10 +59,19 @@
     <ClInclude Include="GameOfLifeGPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameOfLifeCPU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOfLifeMulti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertex.glsl" />
     <None Include="fragment.glsl" />
     <None Include="game_of_life.cl" />
+    <None Include="game_of_life_cpu.cl">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

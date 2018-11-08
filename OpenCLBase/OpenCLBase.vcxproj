@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{95626F81-5426-4479-BBF4-1B18A875E0CC}</ProjectGuid>
     <RootNamespace>OpenCLBase</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -120,7 +120,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="GameOfLifeCPU.cpp" />
     <ClCompile Include="GameOfLifeGPU.cpp" />
+    <ClCompile Include="GameOfLifeMulti.cpp" />
     <ClCompile Include="GameOfLifeSerial.cpp" />
     <ClCompile Include="glad\glad.c" />
     <ClCompile Include="main.cpp" />
@@ -128,7 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
+    <ClInclude Include="GameOfLifeCPU.h" />
     <ClInclude Include="GameOfLifeGPU.h" />
+    <ClInclude Include="GameOfLifeMulti.h" />
     <ClInclude Include="GameOfLifeSerial.h" />
     <ClInclude Include="glad\glad.h" />
     <ClInclude Include="glad\khrplatform.h" />
@@ -137,6 +141,7 @@
   <ItemGroup>
     <None Include="fragment.glsl" />
     <None Include="game_of_life.cl" />
+    <None Include="game_of_life_cpu.cl" />
     <None Include="vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
